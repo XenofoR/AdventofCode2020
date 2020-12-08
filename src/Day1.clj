@@ -1,4 +1,4 @@
-
+(ns Day1)
 (defn getVectorFromFile [fileName]
 (with-open [reader (clojure.java.io/reader fileName)]
 

@@ -10,11 +10,11 @@
 
 (defn readAnswers [parsedReplies unparsedReplies]
       (if (empty? unparsedReplies) (reduce + (map count parsedReplies))
-                                   (if (not (clojure.string/blank? (first unparsedReplies)))
-                                                               (readAnswers (parseLine parsedReplies (first unparsedReplies)) (rest unparsedReplies))
-                                                               (readAnswers (cons (empty set) parsedReplies) (rest unparsedReplies))
-                                                               )
-                                   )
+         (if (not (clojure.string/blank? (first unparsedReplies)))
+             (readAnswers (parseLine parsedReplies (first unparsedReplies)) (rest unparsedReplies))
+             (readAnswers (cons (empty set) parsedReplies) (rest unparsedReplies))
+         )
+       )
       )
 
 (def input (line-seq (clojure.java.io/reader "../input/Day6.in")))
